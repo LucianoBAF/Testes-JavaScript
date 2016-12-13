@@ -12,7 +12,7 @@ var flight =
 };
 
 
-
+//Função recursive que percorre todo o objeto flight, escrevendo todas suas propriedades, inclusive dos seus sub-objetos
 var write_props = function(obj,has_children)
 {
   for(var prop1 in obj)
@@ -29,7 +29,7 @@ var write_props = function(obj,has_children)
         break;
     }    
 
-    if(has_children)			
+    if(has_children)		
       document.writeln('|--- ' + prop1 + ' : ' + obj[prop1]);
     else if(typeof(obj[prop1]) !== "object")
       document.writeln(prop1 + ' : ' + obj[prop1]);	
@@ -40,15 +40,8 @@ var write_props = function(obj,has_children)
 document.writeln("Flight record");
 write_props(flight,false);
 
+document.writeln("	");document.writeln("	");
 
-
-
-
-
-
-
-
-//UPDATE
-/*
-flight.equipment = { nose: "woodpecker"};
-*/
+//Update = faz um append, aicionando mais uma propriedade ao objeto equipment dentro do objeto flight
+flight.equipment.nose = "woodpecker";
+write_props(flight,false);
