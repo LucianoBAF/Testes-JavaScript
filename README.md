@@ -7,9 +7,11 @@ Those files are primarily intended to be used in Google Chrome's Developer envir
   <tr>
     <th>File name</th>
     <th>Description</th>
+    <th>Jsfiddle link</th>
   </tr>
   <tr>
     <td>objScan</td>
-    <td>Scans an object looking for all of its properties, including son objects and functions. It comes preloaded with an example object. It can be used as a snippet for Chrome if only the functions are taken apart.</td>
+    <td>Scans an object looking for all of its properties, including son objects and functions. It comes preloaded with an example object.</td>
+    <td> <script async src="//jsfiddle.net/9yLo1na6/embed/js,html,css,result/dark/"></script> </td>
   </tr>
 </table>
