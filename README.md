@@ -1,13 +1,15 @@
 # Testes-JavaScript
-Repositório para armazenamento de testes didáticos de JavaScript
-Abaixo há uma descrição de cada arquivo.
+Repository for JavaScript's didactic tests storage.<br>
+Below there is a description of each file.<br>
+Those files are primarily intended to be used in Google Chrome's Developer enviroment.<br>
+
 <table>
   <tr>
-    <th>Nome do arquivo</th>
-    <th>Descrição</th>
+    <th>File name</th>
+    <th>Description</th>
   </tr>
   <tr>
-    <td>Print recursivo de propriedades</td>
-    <td>Escreve todas propriedades de um objeto e seus conteúdos, inclusive de objetos filhos. Isso é feito utilizando uma função recursiva.</td>
+    <td>objScan</td>
+    <td>Scans an object looking for all of its properties, including son objects and functions. It comes preloaded with an example object. It can be used as a snippet for Chrome if only the functions are taken apart.</td>
   </tr>
 </table>
