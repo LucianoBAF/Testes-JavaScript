@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html><head>
+	<meta http-equiv='X-UA-Compatible' content='IE=edge' />
+	<meta http-equiv='Content-Type' content='text/html;charset=UTF-8'/>
+	<title>Scanning of parameters</title>
+	
+
+	<script>
+
+		//-----------------------------------------------
+		//Scanning and log of all parameters of an object
+		//-----------------------------------------------
+
+		//-----------------------------------------------
+		//Example of usage-------------------------------
+	
+		var flight =
+		{
+		  plane: 'Airbus A320',
+		  EDT: "06:30AM GTM-3",
+		  ETA: "09:00AM GMT-3",
+		  equipment:
+		  {
+			flaps: "Boeing",
+			tail:  "Spacex",
+			motor: 
+			{
+				motor1: "Eurojet",
+				motor2: "GE"
+			}
+		  },
+		  getPlaneManufacturer: function()
+		  {
+		  	var getFirstWord = /[A-z]*/;
+		  	alert(getFirstWord.exec(this.plane));
+		  }
+		};
+		
+		Flight1 = Object.create(flight);
+
+		//Flight1.plane = "Lockheed F-35";		//TEST PURPOSES: uncomment this line and look for "own object properties" on the log
+
+		var text = objToLog(Flight1);
+
+		document.writeln("<pre>"+text+"<\pre>");
+		//console.log(text);				//If you prefer...
+		//alert(text);						//If you prefer...
+
+		//-----------------------------------------------
+		//Function---------------------------------------
+
+		function objToLog(obj)
+		{
+			objSearch = function(currObj,level)
+			{
+				var textToLog = "";
+
+				var objParams = Object.getOwnPropertyNames(currObj);
+
+				for(var i=0; i < objParams.length; i++)		//for..in only iterates through the indexes of objParams (0,1,2,...)
+				{
+					var param = objParams[i]; 
+
+					//logCurrentParamAndLevel(currObj, param, level);				
+
+					textToLog += addLevelMarksAndParam(level,param);
+					
+
+					var paramType = typeof(currObj[param]);
+
+					if(paramType === "object"  || paramType === "function")
+					{
+						textToLog = textToLog.slice(0, textToLog.length-2); //Removes the ':'
+						
+						if(paramType === "function")
+						{
+							textToLog += currObj[param].toString();
+							textToLog += "\n";
+						}
+						else
+						{
+							textToLog += "\n";	//There is no simple value to be printed, so just break a line
+							textToLog += objSearch(currObj[param],level+1);
+						}
+							
+					}
+					else
+					{
+						textToLog += currObj[param] + "\n";
+					}
+				}
+
+				return textToLog;
+			}
+
+			var textToPrint = "";
+			textToPrint = "Inherited object properties: \n";
+			textToPrint += tryObjSearch(obj.__proto__);
+			textToPrint += "\n--------------------------------------------------------";
+			textToPrint += "\n\nOwn object properties: \n";
+			textToPrint += tryObjSearch(obj);
+
+			return textToPrint;
+		}
+
+
+		function logCurrentParamAndLevel(object, param, level) { console.log("Level: "+level+"		Parameter: "+param + "		Obj(param): "+object[param] + "		typeof(obj[param]): "+typeof(object[param]) );}
+
+		function addLevelMarksAndParam(level, param)
+		{
+			var text = "";
+
+			text += addLevelMarks(level);
+
+			text += param + " : ";
+
+			return text;
+		}
+		
+		function addLevelMarks(level) 
+		{
+			var text = "║";
+
+			for(var i=1; i<=level; i++) 
+			{
+					text += '-';
+			}
+			text += "|";
+
+			return text;
+		}
+
+		function tryObjSearch(obj)
+		{
+			var textToPrint = "";
+			try
+			{
+				textToPrint += objSearch(obj,1);
+			}
+			catch(error)
+			{
+				textToPrint += "!!! Error on trying to get object's parameters !!!";
+			}
+
+			return textToPrint;
+		}	
+
+	</script>
+	
+</html>
