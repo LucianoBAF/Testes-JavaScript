@@ -2,7 +2,11 @@
 Repository for JavaScript's didactic tests storage.<br>
 Below there is a description of each file.<br>
 Those files are primarily intended to be used in Google Chrome's Developer enviroment.<br>
-<script async src="//jsfiddle.net/9yLo1na6/embed/js/dark/"></script>
+
+
+<iframe width="100%" height="300" src="//jsfiddle.net/9yLo1na6/embedded/js/dark/" allowfullscreen="allowfullscreen"></iframe>
+
+
 <br>
 <table>
   <tr>
