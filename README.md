@@ -1,7 +1,7 @@
 # Testes-JavaScript
-Repository for JavaScript's didactic tests storage.<br>
+Repository for didactic JavaScript tests storage.<br>
 Below there is a description of each file.<br>
-Those files are primarily intended to be used in Google Chrome's Developer enviroment.<br>
+These files are primarily intended to be used in Google Chrome's Developer enviroment.<br>
 
 
 <br>
