@@ -13,7 +13,7 @@ These files are primarily intended to be used in Google Chrome's Developer envir
   </tr>
   <tr>
     <td>objScan</td>
-    <td>Scans an object looking for all of its properties, including son objects and functions. It comes preloaded with an example object.</td>
+    <td>Scans an object looking for all of its properties, including it's children and functions. It comes preloaded with an example object.</td>
     <td>https://jsfiddle.net/9yLo1na6/</td>
   </tr>
 </table>
